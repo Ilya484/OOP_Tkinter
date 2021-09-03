@@ -39,4 +39,4 @@ class Window:
     
     def set_button(self, txt, font, position, event=None, background=None):
         Button(self.root, text=txt, bg=background, command=event, font=font).place(x=position[0],
-                                                                                   y=position[1])
+                                                                                         y=position[1])
