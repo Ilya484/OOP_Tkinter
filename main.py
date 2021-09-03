@@ -3,7 +3,7 @@ from iclass import Window
 
 
 if __name__ == "__main__":
-    wind = Window(width, heigth, resize, x, y, title, logo)
+    wind = Window(width, heigth, resize, [x, y], title, logo)
     wind.build()
     wind.set_image(image="resources/pig.jpg", size=(256, 256), position=(0, 500))
     wind.set_text(txt="HELLO", fg='black', position=(0, 20), font=("Arial", 20))
