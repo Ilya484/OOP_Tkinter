@@ -36,7 +36,7 @@ class Window:
         tkimage = ImageTk.PhotoImage(img)
         Label(self.root, image=tkimage).place(x=position[0], y=position[1])
     
-    def button(self, txt, font_param, position, event=None, background=None):
+    def set_button(self, txt, font_param, position, event=None, background=None):
         Button(self.root, text=txt, bg=background, command=event, font=font_param).place(x=position[0],
                                                                                          y=position[1])
 
@@ -46,5 +46,5 @@ if __name__ == "__main__":
     wind.build()
     wind.set_image(image="resources/pig.jpg", size=(256, 256), position=(0, 500))
     wind.set_text(txt="HELLO", fg='black', position=(0, 20), font_param=("Arial", 20))
-    wind.button(txt="click", background='red', position=(0, 50), font_param=("Arial", 12), event=lambda: print('click'))
+    wind.set_button(txt="click", background='red', position=(0, 50), font_param=("Arial", 12), event=lambda: print('click'))
     wind.run()
