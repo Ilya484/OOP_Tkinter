@@ -1,4 +1,3 @@
-from config_window import *
 from PIL import ImageTk, Image
 
 from tkinter import Tk, Label, Button
@@ -13,6 +12,7 @@ class Window:
         self.ypos = ypos
         self.title = title
         self.logo = logo
+        self.font = None
         self.root = Tk()
     
     def build(self):
@@ -25,9 +25,10 @@ class Window:
     def run(self):
         self.root.mainloop()
     
-    def set_text(self, txt, fg, position, font, bg=None):
-        Label(self.root, text=txt, background=bg, foreground=fg, font=font).place(x=position[0],
-                                                                                        y=position[1])
+    def set_text(self, txt, fg, position, font, rel=None, textvar=None, bg=None):
+        Label(self.root, text=txt, background=bg, foreground=fg, font=font, textvariable=textvar, relief=rel).place(
+            x=position[0],
+            y=position[1])
     
     def set_image(self, image, size, position):
         global tkimage
@@ -38,13 +39,4 @@ class Window:
     
     def set_button(self, txt, font, position, event=None, background=None):
         Button(self.root, text=txt, bg=background, command=event, font=font).place(x=position[0],
-                                                                                         y=position[1])
-
-
-if __name__ == "__main__":
-    wind = Window(width, heigth, resize, x, y, title, logo)
-    wind.build()
-    wind.set_image(image="resources/pig.jpg", size=(256, 256), position=(0, 500))
-    wind.set_text(txt="HELLO", fg='black', position=(0, 20), font=("Arial", 20))
-    wind.set_button(txt="click", background='red', position=(0, 50), font=("Arial", 12), event=lambda: print('click'))
-    wind.run()
+                                                                                   y=position[1])
