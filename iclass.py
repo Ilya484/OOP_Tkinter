@@ -23,25 +23,20 @@ class Window:
     
     def run(self):
         self.root.mainloop()
-    
-
-    def set_text(self, txt, fg, position, font, rel=None, textvar=None, bg=None):
-        Label(self.root, text=txt, background=bg, foreground=fg, font=font, textvariable=textvar, relief=rel).place(x=position[0],
-                                                                                        y=position[1])
-
 
     def set_text(self, txt=None, fg="black", position=(0,0), font=None, rel=None, textvar=None, bg=None):
-        Label(self.root, text=txt, background=bg, foreground=fg, font=font, textvariable=textvar, relief=rel).place(
-            x=position[0],
-            y=position[1])
+        Label(self.root, text=txt, background=bg, foreground=fg,
+                        font=font, textvariable=textvar, relief=rel)\
+            .place(x=position[0], y=position[1])
     
     def set_image(self, image=None, size=None, position=(0,0)):
         global tkimage
-        img = Image.open(image)
-        img = img.resize(size)
-        tkimage = ImageTk.PhotoImage(img)
-        Label(self.root, image=tkimage).place(x=position[0], y=position[1])
+        tkimage = ImageTk.PhotoImage(Image.open(image).resize(size))
+        Label(self.root, image=tkimage)\
+            .place(x=position[0], y=position[1])
     
     def set_button(self, txt=None, font=None, position=(0, 0), event=None, background=None):
-        Button(self.root, text=txt, bg=background, command=event, font=font).place(x=position[0],
-                                                                                         y=position[1])
+        Button(self.root, text=txt, bg=background,
+                            command=event, font=font)\
+            .place(x=position[0],y=position[1])
+
