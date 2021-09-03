@@ -24,8 +24,8 @@ class Window:
     def run(self):
         self.root.mainloop()
     
-    def set_text(self, txt, fg, position, font_param, bg=None):
-        Label(self.root, text=txt, background=bg, foreground=fg, font=font_param).place(x=position[0],
+    def set_text(self, txt, fg, position, font_param, rel=None, textvar=None, bg=None):
+        Label(self.root, text=txt, background=bg, foreground=fg, font=font_param, textvariable=textvar, relief=rel).place(x=position[0],
                                                                                         y=position[1])
     
     def set_image(self, image, size, position):
