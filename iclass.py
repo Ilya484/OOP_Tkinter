@@ -12,6 +12,7 @@ class Window:
         self.ypos = ypos
         self.title = title
         self.logo = logo
+        self.font = None
         self.root = Tk()
     
     def build(self):
@@ -24,8 +25,8 @@ class Window:
     def run(self):
         self.root.mainloop()
     
-    def set_text(self, txt, fg, position, font_param, rel=None, textvar=None, bg=None):
-        Label(self.root, text=txt, background=bg, foreground=fg, font=font_param, textvariable=textvar, relief=rel).place(x=position[0],
+    def set_text(self, txt, fg, position, font, rel=None, textvar=None, bg=None):
+        Label(self.root, text=txt, background=bg, foreground=fg, font=font, textvariable=textvar, relief=rel).place(x=position[0],
                                                                                         y=position[1])
     
     def set_image(self, image, size, position):
@@ -35,6 +36,6 @@ class Window:
         tkimage = ImageTk.PhotoImage(img)
         Label(self.root, image=tkimage).place(x=position[0], y=position[1])
     
-    def set_button(self, txt, font_param, position, event=None, background=None):
-        Button(self.root, text=txt, bg=background, command=event, font=font_param).place(x=position[0],
+    def set_button(self, txt, font, position, event=None, background=None):
+        Button(self.root, text=txt, bg=background, command=event, font=font).place(x=position[0],
                                                                                          y=position[1])
